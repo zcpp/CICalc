@@ -32,6 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailReportForm));
             this.dgvDetailReport = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbDiagramIndicator = new System.Windows.Forms.ComboBox();
+            this.btnGenDiagram = new System.Windows.Forms.Button();
             this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColGarriedOver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNonCarriedOver = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,9 +45,6 @@
             this.ColAvgAnnualReturnsRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotalGrowthRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbDiagramIndicator = new System.Windows.Forms.ComboBox();
-            this.btnGenDiagram = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetailReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.dgvDetailReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("幼圆", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("YouYuan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -78,7 +78,7 @@
             this.ColTotal});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("幼圆", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("YouYuan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -92,71 +92,11 @@
             this.dgvDetailReport.Size = new System.Drawing.Size(1004, 572);
             this.dgvDetailReport.TabIndex = 0;
             // 
-            // ColDate
-            // 
-            this.ColDate.HeaderText = "日期";
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            // 
-            // ColGarriedOver
-            // 
-            this.ColGarriedOver.HeaderText = "已结转(元)";
-            this.ColGarriedOver.Name = "ColGarriedOver";
-            this.ColGarriedOver.ReadOnly = true;
-            // 
-            // ColNonCarriedOver
-            // 
-            this.ColNonCarriedOver.HeaderText = "未结转(元)";
-            this.ColNonCarriedOver.Name = "ColNonCarriedOver";
-            this.ColNonCarriedOver.ReadOnly = true;
-            // 
-            // ColDailyReturns
-            // 
-            this.ColDailyReturns.HeaderText = "收益(元)";
-            this.ColDailyReturns.Name = "ColDailyReturns";
-            this.ColDailyReturns.ReadOnly = true;
-            // 
-            // ColDailyReturnsRate
-            // 
-            this.ColDailyReturnsRate.HeaderText = "年化收益率(%)";
-            this.ColDailyReturnsRate.Name = "ColDailyReturnsRate";
-            this.ColDailyReturnsRate.ReadOnly = true;
-            // 
-            // ColAccumulativeReturns
-            // 
-            this.ColAccumulativeReturns.HeaderText = "累计收益(元)";
-            this.ColAccumulativeReturns.Name = "ColAccumulativeReturns";
-            this.ColAccumulativeReturns.ReadOnly = true;
-            // 
-            // ColAccumulativeInvested
-            // 
-            this.ColAccumulativeInvested.HeaderText = "累计投入(元)";
-            this.ColAccumulativeInvested.Name = "ColAccumulativeInvested";
-            this.ColAccumulativeInvested.ReadOnly = true;
-            // 
-            // ColAvgAnnualReturnsRate
-            // 
-            this.ColAvgAnnualReturnsRate.HeaderText = "平均年化收益率(%)";
-            this.ColAvgAnnualReturnsRate.Name = "ColAvgAnnualReturnsRate";
-            this.ColAvgAnnualReturnsRate.ReadOnly = true;
-            // 
-            // ColTotalGrowthRate
-            // 
-            this.ColTotalGrowthRate.HeaderText = "资产增长率(%)";
-            this.ColTotalGrowthRate.Name = "ColTotalGrowthRate";
-            this.ColTotalGrowthRate.ReadOnly = true;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.HeaderText = "总资产(元)";
-            this.ColTotal.Name = "ColTotal";
-            this.ColTotal.ReadOnly = true;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("幼圆", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("YouYuan", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(522, 608);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 19);
@@ -167,7 +107,7 @@
             // 
             this.cmbDiagramIndicator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbDiagramIndicator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDiagramIndicator.Font = new System.Drawing.Font("幼圆", 14.25F);
+            this.cmbDiagramIndicator.Font = new System.Drawing.Font("YouYuan", 14.25F);
             this.cmbDiagramIndicator.FormattingEnabled = true;
             this.cmbDiagramIndicator.Items.AddRange(new object[] {
             "合并",
@@ -182,7 +122,7 @@
             // btnGenDiagram
             // 
             this.btnGenDiagram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenDiagram.Font = new System.Drawing.Font("幼圆", 14.25F);
+            this.btnGenDiagram.Font = new System.Drawing.Font("YouYuan", 14.25F);
             this.btnGenDiagram.Location = new System.Drawing.Point(868, 599);
             this.btnGenDiagram.Name = "btnGenDiagram";
             this.btnGenDiagram.Size = new System.Drawing.Size(148, 37);
@@ -190,6 +130,75 @@
             this.btnGenDiagram.Text = "生成曲线图";
             this.btnGenDiagram.UseVisualStyleBackColor = true;
             this.btnGenDiagram.Click += new System.EventHandler(this.btnGenDiagram_Click);
+            // 
+            // ColDate
+            // 
+            this.ColDate.HeaderText = "日期";
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            // 
+            // ColGarriedOver
+            // 
+            this.ColGarriedOver.HeaderText = "已结转(元)";
+            this.ColGarriedOver.Name = "ColGarriedOver";
+            this.ColGarriedOver.ReadOnly = true;
+            this.ColGarriedOver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColNonCarriedOver
+            // 
+            this.ColNonCarriedOver.HeaderText = "未结转(元)";
+            this.ColNonCarriedOver.Name = "ColNonCarriedOver";
+            this.ColNonCarriedOver.ReadOnly = true;
+            this.ColNonCarriedOver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColDailyReturns
+            // 
+            this.ColDailyReturns.HeaderText = "收益(元)";
+            this.ColDailyReturns.Name = "ColDailyReturns";
+            this.ColDailyReturns.ReadOnly = true;
+            this.ColDailyReturns.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColDailyReturnsRate
+            // 
+            this.ColDailyReturnsRate.HeaderText = "年化收益率(%)";
+            this.ColDailyReturnsRate.Name = "ColDailyReturnsRate";
+            this.ColDailyReturnsRate.ReadOnly = true;
+            this.ColDailyReturnsRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColAccumulativeReturns
+            // 
+            this.ColAccumulativeReturns.HeaderText = "累计收益(元)";
+            this.ColAccumulativeReturns.Name = "ColAccumulativeReturns";
+            this.ColAccumulativeReturns.ReadOnly = true;
+            this.ColAccumulativeReturns.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColAccumulativeInvested
+            // 
+            this.ColAccumulativeInvested.HeaderText = "累计投入(元)";
+            this.ColAccumulativeInvested.Name = "ColAccumulativeInvested";
+            this.ColAccumulativeInvested.ReadOnly = true;
+            this.ColAccumulativeInvested.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColAvgAnnualReturnsRate
+            // 
+            this.ColAvgAnnualReturnsRate.HeaderText = "平均年化收益率(%)";
+            this.ColAvgAnnualReturnsRate.Name = "ColAvgAnnualReturnsRate";
+            this.ColAvgAnnualReturnsRate.ReadOnly = true;
+            this.ColAvgAnnualReturnsRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColTotalGrowthRate
+            // 
+            this.ColTotalGrowthRate.HeaderText = "资产增长率(%)";
+            this.ColTotalGrowthRate.Name = "ColTotalGrowthRate";
+            this.ColTotalGrowthRate.ReadOnly = true;
+            this.ColTotalGrowthRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.HeaderText = "总资产(元)";
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.ReadOnly = true;
+            this.ColTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // DetailReportForm
             // 
