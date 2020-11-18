@@ -1,0 +1,12 @@
+src/CICalc/[Bb]in/
+src/CICalc/[Oo]bj/
+src/CICalc/[Oo]ut/
+src/.vs/
+.dotnet/
+.vs/
+.vscode/
+**/launchSettings.json
+*.trx
+*.suo
+*.user
+.Microsoft.DotNet.ImageBuilder
