@@ -43,6 +43,7 @@ namespace CICalc
             this.chartReport.ChartAreas[0].AxisX.ScaleView.SmallScrollMinSize = 2;
 
             this.chartReport.MouseClick += ChartReport_MouseClick;
+            this.chartReport.MouseMove += ChartReport_MouseMove;
         }
 
         private void ChartReport_MouseClick(object sender, MouseEventArgs e)
@@ -75,7 +76,15 @@ namespace CICalc
                 }
             }
         }
-        
+
+        private void ChartReport_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.X < 160 && e.Y > (this.chartReport.Height - 160))
+            {
+                this._toolTip.Hide(this);
+            }
+        }
+
         private void LoadChartData()
         {
             this.chartReport.Series.Clear();
