@@ -48,38 +48,42 @@ namespace CICalc
 
         private void ChartReport_MouseClick(object sender, MouseEventArgs e)
         {
-            var cursorXValue = this.chartReport.ChartAreas[0].CursorX.Position;
-            if (!double.IsNaN(cursorXValue) && cursorXValue >= 0)
+            if (e.X >= 150 && e.Y <= (this.chartReport.Height - 150))
             {
-                //当X轴值类型为string时，获取到的CursorX的值实际上就是X轴的顺序编号(会在datasource table rows count前后各加一个)
-                var cusorXIndex = Convert.ToInt32(cursorXValue);
-                if (cusorXIndex > 0 && cusorXIndex <= this._dataTables[0].Rows.Count)
+                var cursorXValue = this.chartReport.ChartAreas[0].CursorX.Position;
+                if (!double.IsNaN(cursorXValue) && cursorXValue >= 0)
                 {
-                    bool isDateSet = false;
-                    var sb = new StringBuilder();
-                    for (int i = 0; i < this._dataTables.Count; i++)
+                    //当X轴值类型为string时，获取到的CursorX的值实际上就是X轴的顺序编号(会在datasource table rows count前后各加一个)
+                    var cusorXIndex = Convert.ToInt32(cursorXValue);
+                    if (cusorXIndex > 0 && cusorXIndex <= this._dataTables[0].Rows.Count)
                     {
-                        if (!isDateSet)
+                        bool isDateSet = false;
+                        var sb = new StringBuilder();
+                        for (int i = 0; i < this._dataTables.Count; i++)
                         {
-                            var date = this._dataTables[i].Rows[cusorXIndex - 1].ItemArray[0].ToString();
-                            isDateSet = true;
-                            sb.AppendLine(date);
+                            if (!isDateSet)
+                            {
+                                var date = this._dataTables[i].Rows[cusorXIndex - 1].ItemArray[0].ToString();
+                                isDateSet = true;
+                                sb.AppendLine(date);
+                            }
+                            sb.AppendLine(
+                                string.Format(
+                                    "{0}: {1}%",
+                                    this.chartReport.Series[i].Name.Substring(0, this.chartReport.Series[i].Name.Length - 3),
+                                    this.chartReport.Series[i].Points[cusorXIndex - 1].YValues[0].ToString()));
                         }
-                        sb.AppendLine(
-                            string.Format(
-                                "{0}: {1}%",
-                                this.chartReport.Series[i].Name.Substring(0, this.chartReport.Series[i].Name.Length - 3),
-                                this.chartReport.Series[i].Points[cusorXIndex - 1].YValues[0].ToString()));
+
+                        //tooltip悬停显示3秒钟
+                        _toolTip.Show(sb.ToString(), this, e.X, e.Y, 3000);
                     }
-                    //tooltip悬停显示3秒钟
-                    _toolTip.Show(sb.ToString(), this, e.X, e.Y, 3000);
                 }
             }
         }
 
         private void ChartReport_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.X < 160 && e.Y > (this.chartReport.Height - 160))
+            if (e.X < 150 && e.Y > (this.chartReport.Height - 150))
             {
                 this._toolTip.Hide(this);
             }
