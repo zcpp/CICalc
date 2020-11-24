@@ -36,6 +36,7 @@ namespace CICalc
         private DateFrequency Input_CarryOverFreq;
         private DateFrequency Input_ReportDateFreq;
         private int Input_FracDigNum;
+        private bool Input_PassWeekend = false;
 
         private DateTime _startDay = new DateTime(2020, 12, 31);
         private DateTime _currentDay = new DateTime(2020, 12, 31);
@@ -244,6 +245,12 @@ namespace CICalc
 
         private decimal GetCurrentDayReturnRate(DateTime date, int startedDays, int totalDays)
         {
+            // 非交易日(周末)无收益
+            if (this.Input_PassWeekend && (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday))
+            {
+                return decimal.Zero;
+            }
+
             // 固定平均收益率
             if (this.Input_IsFixedReturn)
             {
@@ -481,6 +488,11 @@ namespace CICalc
                 this.Input_InvTime = 1;
             }
             this.txtInvTime.Text = this.Input_InvTime.ToString();
+        }
+
+        private void chkPassWeekend_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Input_PassWeekend = this.chkPassWeekend.Checked;
         }
 
         private bool PrepareInputCheck()

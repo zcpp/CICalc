@@ -84,6 +84,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.txtAdjustRegInv = new System.Windows.Forms.TextBox();
             this.cmbInvType = new System.Windows.Forms.ComboBox();
+            this.chkPassWeekend = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -99,10 +100,10 @@
             // btnGenReport
             // 
             this.btnGenReport.Font = new System.Drawing.Font("YouYuan", 14.25F);
-            this.btnGenReport.Location = new System.Drawing.Point(153, 651);
+            this.btnGenReport.Location = new System.Drawing.Point(153, 689);
             this.btnGenReport.Name = "btnGenReport";
             this.btnGenReport.Size = new System.Drawing.Size(212, 52);
-            this.btnGenReport.TabIndex = 23;
+            this.btnGenReport.TabIndex = 24;
             this.btnGenReport.Text = "计算并生成模拟明细";
             this.btnGenReport.UseVisualStyleBackColor = true;
             this.btnGenReport.Click += new System.EventHandler(this.btnGenReport_Click);
@@ -705,12 +706,25 @@
             this.cmbInvType.TabIndex = 0;
             this.cmbInvType.SelectedIndexChanged += new System.EventHandler(this.cmbInvType_SelectedIndexChanged);
             // 
+            // chkPassWeekend
+            // 
+            this.chkPassWeekend.AutoSize = true;
+            this.chkPassWeekend.Font = new System.Drawing.Font("YouYuan", 14.25F);
+            this.chkPassWeekend.Location = new System.Drawing.Point(16, 651);
+            this.chkPassWeekend.Name = "chkPassWeekend";
+            this.chkPassWeekend.Size = new System.Drawing.Size(288, 23);
+            this.chkPassWeekend.TabIndex = 23;
+            this.chkPassWeekend.Text = "非交易日无收益(仅支持周末)";
+            this.chkPassWeekend.UseVisualStyleBackColor = true;
+            this.chkPassWeekend.CheckedChanged += new System.EventHandler(this.chkPassWeekend_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnGenReport;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 714);
+            this.ClientSize = new System.Drawing.Size(502, 756);
+            this.Controls.Add(this.chkPassWeekend);
             this.Controls.Add(this.cmbInvType);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.txtAdjustRegInv);
@@ -835,6 +849,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtAdjustRegInv;
         private System.Windows.Forms.ComboBox cmbInvType;
+        private System.Windows.Forms.CheckBox chkPassWeekend;
     }
 }
 

@@ -16,6 +16,9 @@ namespace CICalc
         private List<DataTable> _dataTables;
         ToolTip _toolTip;
 
+        private int _lastMouseX = 0;
+        private int _lastMouseY = 0;
+
         public ChartForm(ChartDataType chartDataType, List<DataTable> dataTables)
         {
             this._chartDataType = chartDataType;
@@ -74,8 +77,11 @@ namespace CICalc
                                     this.chartReport.Series[i].Points[cusorXIndex - 1].YValues[0].ToString()));
                         }
 
+                        this._lastMouseX = e.X;
+                        this._lastMouseY = e.Y;
+
                         //tooltip悬停显示3秒钟
-                        _toolTip.Show(sb.ToString(), this, e.X, e.Y, 3000);
+                        _toolTip.Show(sb.ToString(), this, e.X, e.Y, 1500);
                     }
                 }
             }
@@ -83,7 +89,8 @@ namespace CICalc
 
         private void ChartReport_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.X < 150 && e.Y > (this.chartReport.Height - 150))
+            if ((e.X < 150 && e.Y > (this.chartReport.Height - 150)) ||
+                (Math.Abs(e.X - this._lastMouseX) > 20 || Math.Abs(e.Y - this._lastMouseY) > 20))
             {
                 this._toolTip.Hide(this);
             }
