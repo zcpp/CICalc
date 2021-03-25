@@ -263,8 +263,11 @@ namespace CICalc
                 bool isLoss = GetRandom().Next(1, 10001) > (10000 - (10000 * this.Input_LossProb));
                 if (isLoss)
                 {
-                    // 返回负数亏损年化收益率
-                    return Decimal.Zero - (((this.Input_MaxLossRate - this.Input_MinLossRate) * Convert.ToDecimal(GetRandom().NextDouble())) + this.Input_MinLossRate);
+                    var daysOfYear = DateTime.IsLeapYear(date.Year) ? 366 : 365;
+                    // 获取当天净额亏损率
+                    var lossRate = ((this.Input_MaxLossRate - this.Input_MinLossRate) * Convert.ToDecimal(GetRandom().NextDouble())) + this.Input_MinLossRate;
+                    // 当日净额亏损率转成亏损年化收益率然后返回负数
+                    return Decimal.Zero - (lossRate * daysOfYear);
                 }
             }
 
